@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct ChatAppApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Login(LoginviewModel: AuthDIContainer.shared.makeLoginViewModel(), SignupModel: AuthDIContainer.shared.makeSignUpViewModel())
         }
     }
 }

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol LoginProtocol{
+    func loginUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
+}
+
+protocol SignupProtocol{
+    func signupUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
+}
