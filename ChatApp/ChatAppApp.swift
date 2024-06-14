@@ -16,6 +16,7 @@ struct ChatAppApp: App {
     var body: some Scene {
         WindowGroup {
             Login(LoginviewModel: AuthDIContainer.shared.makeLoginViewModel(), SignupModel: AuthDIContainer.shared.makeSignUpViewModel())
+            
         }
     }
 }

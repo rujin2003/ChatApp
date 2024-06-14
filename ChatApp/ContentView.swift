@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-   
     var body: some View {
-        VStack {
-          Signup()
-        }
-        .padding()
+        TabView {
+            HomePage()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+           AddFriend()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
+        }.navigationBarBackButtonHidden(true)
     }
 }
+
 
 #Preview {
     ContentView()

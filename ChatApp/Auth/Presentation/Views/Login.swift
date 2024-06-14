@@ -30,7 +30,7 @@ struct Login: View {
                 }
         signupPage()
                 
-                NavigationLink(destination: ContentView(), isActive: $LoginviewModel.logedIn) { EmptyView() }
+                NavigationLink(destination:ContentView(), isActive: $LoginviewModel.logedIn) { EmptyView() }
 
                 
                 
@@ -86,7 +86,7 @@ extension Login {
     
     func signupPage() -> some View {
         return
-            NavigationLink(destination: Signup(SignupviewModel:SignupModel)) {
+            NavigationLink(destination: Signup(SignupviewModl:SignupModel)) {
              
                     HStack{
                         Text("Create a Account")
