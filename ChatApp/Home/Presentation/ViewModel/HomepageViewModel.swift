@@ -5,15 +5,15 @@
 //  Created by Rujin on 13/06/24.
 //
 
-import Foundation
+import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
 
-class HomePageViewModel : ObservableObject{
-    
-    @Published var userData : User = User(id: UUID(), username: "", email: "", phoneno: "", image: "")
-    
-    func getUserData() async throws -> Void {
+class HomePageViewModel: ObservableObject {
+    @Published var userData: User = User(id: UUID(), username: "", email: "", phoneno: "", image: "")
+    @Published var isLoading: Bool = true
+
+    func getUserData() async throws {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
@@ -44,6 +44,8 @@ class HomePageViewModel : ObservableObject{
         
         DispatchQueue.main.async {
             self.userData = user
+            self.isLoading = false
         }
     }
 }
+

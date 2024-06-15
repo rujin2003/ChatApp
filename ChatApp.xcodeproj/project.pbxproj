@@ -34,6 +34,9 @@
 		18EED3922C1C254600117C16 /* AddFreind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED3912C1C254600117C16 /* AddFreind.swift */; };
 		18EED3952C1C2B6600117C16 /* AddFreindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED3942C1C2B6600117C16 /* AddFreindViewModel.swift */; };
 		18EED3982C1C2ED300117C16 /* SearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED3972C1C2ED300117C16 /* SearchUser.swift */; };
+		18EED39B2C1C3FEA00117C16 /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED39A2C1C3FEA00117C16 /* ImageDownload.swift */; };
+		18EED39D2C1C401900117C16 /* ImageViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED39C2C1C401900117C16 /* ImageViewModels.swift */; };
+		18EED3A02C1C415600117C16 /* ProfilePicWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EED39F2C1C415600117C16 /* ProfilePicWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		18EED3912C1C254600117C16 /* AddFreind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFreind.swift; sourceTree = "<group>"; };
 		18EED3942C1C2B6600117C16 /* AddFreindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFreindViewModel.swift; sourceTree = "<group>"; };
 		18EED3972C1C2ED300117C16 /* SearchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUser.swift; sourceTree = "<group>"; };
+		18EED39A2C1C3FEA00117C16 /* ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownload.swift; sourceTree = "<group>"; };
+		18EED39C2C1C401900117C16 /* ImageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModels.swift; sourceTree = "<group>"; };
+		18EED39F2C1C415600117C16 /* ProfilePicWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +261,7 @@
 		18EED3852C1AD0FE00117C16 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18EED3992C1C3FDD00117C16 /* Data */,
 				18EED3892C1AD15900117C16 /* Domain */,
 				18EED3862C1AD10600117C16 /* Presentation */,
 			);
@@ -283,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				18EED3832C1AC25A00117C16 /* HomepageViewModel.swift */,
+				18EED39C2C1C401900117C16 /* ImageViewModels.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 		18EED38B2C1AD96A00117C16 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				18EED39F2C1C415600117C16 /* ProfilePicWidget.swift */,
 				18EED38C2C1AD99600117C16 /* ChatUser.swift */,
 			);
 			path = Components;
@@ -348,6 +357,14 @@
 			isa = PBXGroup;
 			children = (
 				18EED3972C1C2ED300117C16 /* SearchUser.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		18EED3992C1C3FDD00117C16 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				18EED39A2C1C3FEA00117C16 /* ImageDownload.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -501,9 +518,12 @@
 				18EED3822C1AC1F800117C16 /* HomePage.swift in Sources */,
 				18575E2B2C0E3D3D0014D247 /* SignupAuth.swift in Sources */,
 				18AE33A92C1997440025F63F /* LoginAuth.swift in Sources */,
+				18EED39D2C1C401900117C16 /* ImageViewModels.swift in Sources */,
 				18EED38D2C1AD99600117C16 /* ChatUser.swift in Sources */,
+				18EED3A02C1C415600117C16 /* ProfilePicWidget.swift in Sources */,
 				18575DE62C0DAF660014D247 /* ContentView.swift in Sources */,
 				18EED3922C1C254600117C16 /* AddFreind.swift in Sources */,
+				18EED39B2C1C3FEA00117C16 /* ImageDownload.swift in Sources */,
 				18EED3952C1C2B6600117C16 /* AddFreindViewModel.swift in Sources */,
 				18EED3842C1AC25A00117C16 /* HomepageViewModel.swift in Sources */,
 				18575E162C0DD38F0014D247 /* User.swift in Sources */,
