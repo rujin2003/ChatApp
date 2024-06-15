@@ -41,7 +41,7 @@ struct ProfilePicWidget: View {
 
 struct ProfilePicWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilePicWidget(viewModel: ImageDownloadViewModel(), imageURL: "https://www.example.com/sampleImage.jpg")
+        ProfilePicWidget(viewModel:HomeDiContainer.shared.makeImageViewModel(), imageURL: "https://www.example.com/sampleImage.jpg")
     }
 }
 

@@ -11,7 +11,12 @@ import SwiftUI
 
 class ImageDownloadViewModel: ObservableObject {
     @Published var image: UIImage?
-    let loader: ImageDownload = ImageDownload()
+    let loader: ImageDownloadProtocol
+    
+    init(loader: ImageDownloadProtocol) {
+      
+        self.loader = loader
+    }
     
     func fetchImage(url: String) async {
         if let image = await loader.getImage(urlstring: url) {

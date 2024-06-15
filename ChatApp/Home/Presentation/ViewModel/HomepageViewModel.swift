@@ -12,11 +12,13 @@ import FirebaseAuth
 class HomePageViewModel: ObservableObject {
     @Published var userData: User = User(id: UUID(), username: "", email: "", phoneno: "", image: "")
     @Published var isLoading: Bool = true
+    
 
     func getUserData() async throws {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
+        
         let uid = currentUser.uid
         let db = Firestore.firestore()
         let docRef = db.collection("Users").document(uid)

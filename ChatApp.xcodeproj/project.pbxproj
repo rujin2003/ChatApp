@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1812C73B2C1DF21700D4A8A5 /* ImageRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812C73A2C1DF21700D4A8A5 /* ImageRepo.swift */; };
+		1812C73F2C1DF2EC00D4A8A5 /* HomeDiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812C73E2C1DF2EC00D4A8A5 /* HomeDiContainer.swift */; };
 		18575DE42C0DAF660014D247 /* ChatAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18575DE32C0DAF660014D247 /* ChatAppApp.swift */; };
 		18575DE62C0DAF660014D247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18575DE52C0DAF660014D247 /* ContentView.swift */; };
 		18575DE82C0DAF680014D247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18575DE72C0DAF680014D247 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1812C73A2C1DF21700D4A8A5 /* ImageRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepo.swift; sourceTree = "<group>"; };
+		1812C73E2C1DF2EC00D4A8A5 /* HomeDiContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiContainer.swift; sourceTree = "<group>"; };
 		18575DE02C0DAF660014D247 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18575DE32C0DAF660014D247 /* ChatAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppApp.swift; sourceTree = "<group>"; };
 		18575DE52C0DAF660014D247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1812C7382C1DF1F800D4A8A5 /* DomainHome */ = {
+			isa = PBXGroup;
+			children = (
+				1812C7392C1DF20400D4A8A5 /* Repo */,
+			);
+			path = DomainHome;
+			sourceTree = "<group>";
+		};
+		1812C7392C1DF20400D4A8A5 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				1812C73A2C1DF21700D4A8A5 /* ImageRepo.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		1812C73D2C1DF2D000D4A8A5 /* DiHome */ = {
+			isa = PBXGroup;
+			children = (
+				1812C73E2C1DF2EC00D4A8A5 /* HomeDiContainer.swift */,
+			);
+			path = DiHome;
+			sourceTree = "<group>";
+		};
 		18575DD72C0DAF660014D247 = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +289,8 @@
 		18EED3852C1AD0FE00117C16 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1812C73D2C1DF2D000D4A8A5 /* DiHome */,
+				1812C7382C1DF1F800D4A8A5 /* DomainHome */,
 				18EED3992C1C3FDD00117C16 /* Data */,
 				18EED3892C1AD15900117C16 /* Domain */,
 				18EED3862C1AD10600117C16 /* Presentation */,
@@ -508,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1812C73F2C1DF2EC00D4A8A5 /* HomeDiContainer.swift in Sources */,
 				18575E112C0DAFA10014D247 /* Login.swift in Sources */,
 				18CBC7A32C102D8A00988BA5 /* DIContainer.swift in Sources */,
 				18575E2D2C0EDF5F0014D247 /* SingUpViewModel.swift in Sources */,
@@ -521,6 +552,7 @@
 				18EED39D2C1C401900117C16 /* ImageViewModels.swift in Sources */,
 				18EED38D2C1AD99600117C16 /* ChatUser.swift in Sources */,
 				18EED3A02C1C415600117C16 /* ProfilePicWidget.swift in Sources */,
+				1812C73B2C1DF21700D4A8A5 /* ImageRepo.swift in Sources */,
 				18575DE62C0DAF660014D247 /* ContentView.swift in Sources */,
 				18EED3922C1C254600117C16 /* AddFreind.swift in Sources */,
 				18EED39B2C1C3FEA00117C16 /* ImageDownload.swift in Sources */,

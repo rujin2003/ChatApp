@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomePage: View {
-    @StateObject var homeModel = HomePageViewModel()
-    @StateObject var imageDownloadViewModel = ImageDownloadViewModel()
+    @StateObject var homeModel : HomePageViewModel
+    @StateObject var imageDownloadViewModel : ImageDownloadViewModel
 
     var body: some View {
         VStack {
@@ -51,5 +51,5 @@ struct HomePage: View {
 }
 
 #Preview {
-    HomePage()
+    HomePage(homeModel:HomeDiContainer.shared.makeHomePageViewModel(), imageDownloadViewModel: HomeDiContainer.shared.makeImageViewModel())
 }

@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            HomePage()
+            HomePage(homeModel: HomeDiContainer.shared.makeHomePageViewModel(), imageDownloadViewModel: HomeDiContainer.shared
+                .makeImageViewModel())
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")

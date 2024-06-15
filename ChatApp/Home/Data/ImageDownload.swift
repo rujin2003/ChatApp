@@ -7,7 +7,8 @@
 
 import Foundation
 import SwiftUI
- class ImageDownload {
+
+class ImageDownload : ImageDownloadProtocol {
      
     let cache = NSCache<NSString, UIImage>()
     
