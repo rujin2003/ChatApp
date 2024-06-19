@@ -18,7 +18,11 @@ class ImageDownloadViewModel: ObservableObject {
         self.loader = loader
     }
     
-    func fetchImage(url: String) async {
+    func fetchImage(url: String?) async {
+        guard let url = url else{
+            print("cannot fetch image")
+            return 
+        }
         if let image = await loader.getImage(urlstring: url) {
             DispatchQueue.main.async {
                 self.image = image

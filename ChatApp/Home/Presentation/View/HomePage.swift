@@ -1,15 +1,8 @@
-//
-//  HomePage.swift
-//  ChatApp
-//
-//  Created by Rujin on 13/06/24.
-//
-
 import SwiftUI
 
 struct HomePage: View {
-    @StateObject var homeModel : HomePageViewModel
-    @StateObject var imageDownloadViewModel : ImageDownloadViewModel
+    @StateObject var homeModel: HomePageViewModel
+    @StateObject var imageDownloadViewModel: ImageDownloadViewModel
 
     var body: some View {
         VStack {
@@ -23,9 +16,25 @@ struct HomePage: View {
                     ProgressView()
                         .frame(width: 50, height: 50)
                         .background(Color.gray.opacity(0.3))
-                        .clipShape(Circle()).padding()
+                        .clipShape(Circle())
+                        .padding()
                 } else {
-                    ProfilePicWidget(viewModel: imageDownloadViewModel, imageURL: homeModel.userData.image ?? "").padding()
+                    if let imageURL = homeModel.userData.image,
+                       !imageURL.trimmingCharacters(in: .whitespaces).isEmpty {
+                        ProfilePicWidget(viewModel: imageDownloadViewModel, imageURL: imageURL)
+                            .padding()
+                    } else {
+                        Circle()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.gray)
+                            .overlay {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                            }
+                            .padding()
+                    }
                 }
             }
             Spacer()
@@ -42,7 +51,8 @@ struct HomePage: View {
             Task {
                 try await homeModel.getUserData()
                 
-                if let imageURL = homeModel.userData.image {
+                if let imageURL = homeModel.userData.image,
+                   !imageURL.trimmingCharacters(in: .whitespaces).isEmpty {
                     await imageDownloadViewModel.fetchImage(url: imageURL)
                 }
             }
@@ -50,6 +60,9 @@ struct HomePage: View {
     }
 }
 
-#Preview {
-    HomePage(homeModel:HomeDiContainer.shared.makeHomePageViewModel(), imageDownloadViewModel: HomeDiContainer.shared.makeImageViewModel())
+struct HomePage_Previews: PreviewProvider {
+    static var previews: some View {
+        HomePage(homeModel: HomeDiContainer.shared.makeHomePageViewModel(), imageDownloadViewModel: HomeDiContainer.shared.makeImageViewModel())
+    }
 }
+

@@ -6,45 +6,43 @@
 //
 
 import Foundation
-
-import SwiftUI
-import Combine
-
-enum SearchState {
-    case normal
-    case loading
-    case loaded
-}
+import FirebaseFirestore
 
 class AddFriendViewModel: ObservableObject {
-    @Published var searchText = ""
-    @Published var state: SearchState = .normal
-    @Published var searchResults: [User?] = []
-
-    func searchForUsers( uservalue : String ) {
-        
-        DispatchQueue.main.async{
-            self.state = .loading
-        }
-        Task{
-            searchResults.append(try await  SearchUser.shared.searchUser(field: "username", value: uservalue))
-        }
-     
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-           
-          
-          
-            DispatchQueue.main.async{
-                self.state = .loaded
-            }
-        }
+    @Published var searchText: String = ""
+    @Published var searchResults: [User] = []
+    @Published var state: ViewState = .normal
+    
+    enum ViewState {
+        case normal
+        case loading
+        case loaded
     }
-
-    func resetSearch() {
-        searchText = ""
-        searchResults = []
-        DispatchQueue.main.async{
-            self.state = .normal
+    
+    func searchForUsers(uservalue: String) {
+        guard !uservalue.isEmpty else { return }
+        self.state = .loading
+        
+        Task {
+            do {
+                if let user = try await SearchUser.shared.searchUser(field: "username", value: uservalue) {
+                    DispatchQueue.main.async {
+                        self.searchResults = [user]
+                        self.state = .loaded
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.searchResults = []
+                        self.state = .loaded
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.searchResults = []
+                    self.state = .normal
+                }
+                print("Error searching for users: \(error)")
+            }
         }
     }
 }

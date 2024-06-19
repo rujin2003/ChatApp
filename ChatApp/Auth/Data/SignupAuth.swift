@@ -3,18 +3,16 @@
 //  ChatApp
 //
 //  Created by Apple on 03/06/24.
-//
 
 
-import Foundation
 import FirebaseAuth
-import FirebaseStorage
 import FirebaseFirestore
-
+import FirebaseStorage
+import Foundation
 
 class SignupAuth: SignupProtocol {
     static let shared = SignupAuth()
-    
+
     func signupUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -24,16 +22,14 @@ class SignupAuth: SignupProtocol {
                 completion(.success(()))
             }
         }
-        
     }
-    
-    
+
     func uploadImage(data: Data, completion: @escaping (String?) -> Void) {
         let storage = Storage.storage().reference()
         let imageData = data
         let path = "image/\(UUID().uuidString).jpg"
         let file = storage.child(path)
-        
+
         file.putData(imageData, metadata: nil) { metadata, error in
             if error == nil && metadata != nil {
                 file.downloadURL { url, err in
@@ -51,29 +47,23 @@ class SignupAuth: SignupProtocol {
         }
     }
 
-    
-    func uploadData(user: String ,mail: String ,no: String ,image: Data) {
-        
+    func uploadData(user: String, mail: String, no: String, image: Data) {
         uploadImage(data: image) { url in
             guard let imageUrl = url else {
-                         print("Failed to upload image")
-                         return
-                     }
-            let user = User(username: user, email: mail, phoneno: no,image:imageUrl )
-            
+                print("Failed to upload image")
+                return
+            }
+            let user = User(username: user, email: mail, phoneno: no, image: imageUrl)
+
             let db = Firestore.firestore()
             let currentUser = Auth.auth().currentUser
             db.collection("Users").document(currentUser?.uid ?? mail).setData(user.toDictionary()) { error in
-                       if let error = error {
-                           print("Error writing document: \(error)")
-                       } else {
-                           print("Document successfully written!")
-                       }
-                   }
-            
+                if let error = error {
+                    print("Error writing document: \(error)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
         }
-        
     }
-    
-
 }
